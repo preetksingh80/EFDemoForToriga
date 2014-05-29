@@ -1,5 +1,43 @@
 ﻿@model dynamic
 
 
-<h2>@ViewBag.Title</h2>
-<h3>Hello</h3>
+<div class="jumbotron">
+    <h1>Hello, @ViewBag.Title</h1>
+    <p>
+        Welcome to demo for Toriga, using technologies like: Entity framework, Bootstrap , JQuery and some Design patterns.
+        For the purpose of this demo what I have done a little bit extra then asked for.
+    </p>
+</div>
+<div class="panel panel-primary">
+    <div class="panel-heading">A brief overview of the Architecture</div>
+    <div class="panel-body">
+        <ul>
+            <li>
+                <strong>Core :</strong> this is where all the business logic lives, the core project exposes some interfaces out, these interfaces
+                define what the core needs from other projects may be. The good thing about this is that we can provide different implementations etc.
+                In this example the core only needs someone to provide an implementation of "IMyDataService". All projects are free to refence Core
+                but the core project itself is as simple as it could be and without any external or internal dependencies.
+            </li>
+            <li>
+               <strong>Core.Services.EF: </strong>This project implements the "IMyDataService" from the Core project, and provides an implementation based on the 
+                entity frmework 6.
+            </li>
+            <li>
+                <strong>Core.Services.InMemory: </strong>This project implements the "IMyDataService" from the Core project, and provides an implementation based on 
+                simple in-memory data.
+            </li>
+            <li>
+                Lastly there is a <strong>Test</strong> project.
+            </li>
+            
+        </ul>
+    </div>
+  
+    <p>
+        To Show off the flexibility of the approach, when you first run this project this is running from in memory data, you can eaisly switch it
+        to run from data base by changing the <strong>"DataService"</strong> config Key in webconfig to <strong>"DB"</strong>
+    </p>
+</div>
+    
+  
+
