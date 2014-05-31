@@ -1,5 +1,48 @@
-﻿@model dynamic
+﻿@model WebApp.Models.DataViewModel
 
 
 
-<h2>title</h2>
+<h2>@Model.Title</h2>
+
+
+<div class="table-responsive">
+    <table id="datatable" class="table table-bordered">
+        <thead class="bg-primary">
+            <tr>
+                @foreach (var columnHeading in Model.ColumnHeadings)
+                {
+                    <th>@columnHeading</th>
+                }
+            </tr>
+        </thead>
+        <tfoot class="bg-primary">
+            <tr>
+                <td colspan="4">Total rows = @Model.Data.Count()</td>
+            </tr>
+        </tfoot>
+        <tbody>
+            @foreach (var dataItem in Model.Data)
+            {
+                <tr>
+                    <td>@dataItem.Id</td>
+                    <td>@dataItem.Column1</td>
+                    <td>@dataItem.Column2</td>
+                    <td>@dataItem.Column3</td>
+                </tr>
+            }
+            
+        </tbody>
+    </table>
+</div>
+@section Scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //$("#datatable > thead").addClass("info");
+            $("#datatable > tbody > tr:odd").css("background-color", "#EFF1F1");
+        });
+
+
+    </script>
+    
+}

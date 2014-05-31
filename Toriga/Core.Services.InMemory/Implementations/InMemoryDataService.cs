@@ -28,5 +28,10 @@ namespace Core.Services.InMemory.Implementations
         {
             return _dataSource;
         }
+
+       public void Dispose()
+       {
+           
+       }
     }
 }

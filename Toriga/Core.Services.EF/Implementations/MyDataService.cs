@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
@@ -28,8 +29,11 @@ namespace Core.Services.EF.Implementations
             return _context.Set<T>().ToList();
         }
 
-       
 
-       
+        public void Dispose()
+        {
+            if(_context.Database.Connection.State == ConnectionState.Open ){ _context.Database.Connection.Close();}
+            _context.Dispose();
+        }
     }
 }

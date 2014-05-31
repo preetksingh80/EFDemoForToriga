@@ -14,8 +14,8 @@
         <ul>
             <li>
                 <strong>Core :</strong> this is where all the business logic lives, the core project exposes some interfaces out, these interfaces
-                define what the core needs from other projects may be. The good thing about this is that we can provide different implementations etc.
-                In this example the core only needs someone to provide an implementation of "IMyDataService". All projects are free to refence Core
+                define what the core needs from other projects. The good thing about this is that we can provide different implementations etc.
+                In this example the core only needs someone to provide an implementation of "IMyDataService". All projects are free to reference Core
                 but the core project itself is as simple as it could be and without any external or internal dependencies.
             </li>
             <li>
@@ -35,7 +35,7 @@
   
     <p>
         To Show off the flexibility of the approach, when you first run this project this is running from in memory data, you can eaisly switch it
-        to run from data base by changing the <strong>"DataService"</strong> config Key in webconfig to <strong>"DB"</strong>
+        to run from database by changing the <strong>"DataService"</strong> config Key in webconfig to <strong>"DB"</strong>
     </p>
 </div>
     
